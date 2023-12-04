@@ -187,13 +187,10 @@ class LoginScreen extends StatelessWidget {
 
   Future<void> loginUser(BuildContext context) async {
     try {
-      // Perform login
-      // ...
       final postData = await apiService.postLogin("auth/login", {
         'username': userCredentials.email,
         'password': userCredentials.password
       });
-
       final Map<String, dynamic> dataValue = postData['data'];
       final String token = dataValue['token'];
       AuthStorage.setToken(token);
